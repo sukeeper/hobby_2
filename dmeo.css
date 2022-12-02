@@ -1,0 +1,119 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 百分百视口 */
+    height: 100vh;
+    /* 弹性布局  居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 背景渐变 */
+    background: radial-gradient(circle at center,#333,#000);
+}
+.container{
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.out_div img{
+    width: 200px;
+    height: 200px;
+    /* 对图片进行剪切，保留原始比例 */
+    object-fit: cover;
+}
+.in_div img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.box{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /* 开启3d */
+    transform-style: preserve-3d;
+    animation: rotateAnimate 10s linear infinite;
+}
+.out_div{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /* 动画过渡 */
+    transition: transform ls ease-in;
+}
+.out_font{
+    transform: translateZ(100px);
+}
+.out_back{
+    transform: translateZ(-100px) rotate(180deg);
+}
+.out_left{
+    transform: translateX(-100px) rotateY(-90deg);
+}
+.out_right{
+    transform: translateX(100px) rotateY(90deg);
+}
+.out_bottom{
+    transform: translateY(100px) rotateX(-90deg);
+}
+.out_top{
+    transform: translateY(-100px) rotateX(90deg);
+}
+.container:hover .out_font{
+    transform: translateZ(200px);
+}
+.container:hover .out_back{
+    transform: translateZ(-200px) rotateY(180deg);
+}
+.container:hover .out_left{
+    transform: translateX(-200px) rotateY(-90deg) ;
+}
+.container:hover .out_right{
+    transform: translateX(200px) rotateY(90deg);
+}
+.container:hover .out_top{
+    transform: translateY(-200px) rotateX(90deg);
+}
+.container:hover .out_bottom{
+    transform: translateY(200px) rotateX(-90deg);
+}
+.in_div{
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+.in_font{
+    transform: translateZ(50px);
+}
+.in_back{
+    transform: translateZ(-50px) rotateY(180deg);
+}
+.in_left{
+    transform: translateX(-50px) rotateY(-90deg);
+}
+.in_right{
+    transform: translateX(50px) rotateY(90deg);
+}
+.in_top{
+    transform: translateY(-50px) rotateX(90deg);
+}
+.in_bottom{
+    transform: translateY(50px) rotateX(-90deg);
+}
+@keyframes rotateAnimate{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
